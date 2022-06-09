@@ -1,4 +1,3 @@
-require 'pry'
 
 class CashRegister
 
@@ -19,8 +18,8 @@ class CashRegister
 
   def apply_discount
     if self.discount != 0
-      self.total -= ((self.discount.to_f / 100) * @total).to_i
-      "After the discount, the total comes to $#{@total}."
+      self.total -= ((self.discount.to_f / 100) * self.total).to_i
+      "After the discount, the total comes to $#{self.total}."
     else
       "There is no discount to apply."
     end
