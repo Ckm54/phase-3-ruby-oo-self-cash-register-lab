@@ -11,23 +11,15 @@ class CashRegister
     @discount = discount
   end
 
-  # def total=(value)
-  #   @total = value
-  # end
-
-  # def total
-  #   @total
-  # end
-
   def add_item(title, price, quantity=1)
-    @total += price * quantity
-    @last_amount = quantity * price
+    self.total += price * quantity
+    self.last_amount = quantity * price
     1..quantity.times { @titles << title }
   end
 
   def apply_discount
     if self.discount != 0
-      @total -= ((self.discount.to_f / 100) * @total).to_i
+      self.total -= ((self.discount.to_f / 100) * @total).to_i
       "After the discount, the total comes to $#{@total}."
     else
       "There is no discount to apply."
@@ -35,7 +27,7 @@ class CashRegister
   end
 
   def items
-    @titles
+    self.titles
   end
 
   def void_last_transaction
